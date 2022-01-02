@@ -22,6 +22,7 @@ import {
   Code,
 } from 'native-base';
 import NativeBaseIcon from './src/components/NativeBaseIcon';
+import AppNavigator from './src/navigations/app.navigator';
 
 // Color Switch Component
 function ToggleDarkMode() {
@@ -43,7 +44,7 @@ function ToggleDarkMode() {
 const App = () => {
   return (
     <NativeBaseProvider>
-      <Center
+      {/* <Center
         _dark={{ bg: 'blueGray.900' }}
         _light={{ bg: 'blueGray.50' }}
         px={4}
@@ -63,7 +64,8 @@ const App = () => {
           </Link>
           <ToggleDarkMode />
         </VStack>
-      </Center>
+      </Center> */}
+      <AppNavigator />
     </NativeBaseProvider>
   );
 };
