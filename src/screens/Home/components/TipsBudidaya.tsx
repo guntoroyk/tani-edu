@@ -29,7 +29,7 @@ export default function TipsBudidaya() {
           createdAt: new Date().toDateString(),
         },
       ]}
-      renderItem={({ item }) => <Card item={item} />}
+      renderItem={({ item }) => <Card item={item} horizontal />}
       keyExtractor={item => item.id.toString()}
       horizontal={true}
       showsHorizontalScrollIndicator={false}

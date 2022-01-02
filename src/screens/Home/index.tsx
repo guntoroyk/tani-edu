@@ -4,7 +4,7 @@ import Menus from './components/Menus';
 import InfoTani from './components/InfoTani';
 import TipsBudidaya from './components/TipsBudidaya';
 
-export default function Home() {
+export default function Home({ navigation }: any) {
   return (
     <ScrollView>
       <VStack
@@ -18,7 +18,11 @@ export default function Home() {
 
         <HStack mt={2} alignItems="center" justifyContent="space-between">
           <Heading size="md">Info Tani</Heading>
-          <Button variant="link" colorScheme="success" mr={-3}>
+          <Button
+            variant="link"
+            colorScheme="success"
+            mr={-3}
+            onPress={() => navigation.navigate('InfoTani')}>
             Lihat semua
           </Button>
         </HStack>

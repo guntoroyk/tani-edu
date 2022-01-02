@@ -7,6 +7,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, Icon, IconButton, Pressable, View } from 'native-base';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from '../screens/Home';
+import InfoTaniList from '../screens/InfoTani/InfoTaniList';
+import InfoTaniDetail from '../screens/InfoTani/InfoTaniDetail';
 
 function SettingsScreen() {
   return (
@@ -103,6 +105,20 @@ const HomeStackScreen = () => {
         component={BottomTabNavigator}
         options={{
           headerShown: false,
+        }}
+      />
+      <HomeStack.Screen
+        name="InfoTani"
+        component={InfoTaniList}
+        options={{
+          headerTitle: 'Info Tani',
+        }}
+      />
+      <HomeStack.Screen
+        name="InfoTaniDetail"
+        component={InfoTaniDetail}
+        options={{
+          headerTitle: '',
         }}
       />
     </HomeStack.Navigator>

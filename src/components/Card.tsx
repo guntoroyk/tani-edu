@@ -16,16 +16,18 @@ type CardItem = {
   title: string;
   image: string;
   description: string;
+  body: string;
   author: string;
   category: string;
   createdAt: string;
 };
 
-const Card = ({ item }) => {
+const Card = ({ item, horizontal = false, onPress = () => {} }) => {
   return (
     <Pressable
-      m={1}
-      maxW="80"
+      onPress={onPress}
+      m={2}
+      maxW={horizontal ? '80' : '100%'}
       rounded="lg"
       overflow="hidden"
       borderColor="coolGray.200"
@@ -70,7 +72,7 @@ const Card = ({ item }) => {
           {item.category}
         </Center>
       </Box>
-      <Stack px="4" py={3} space={2}>
+      <Stack px="4" py="3" space={2}>
         <Stack space={1}>
           <Heading size="md" ml="-1" isTruncated noOfLines={2}>
             {item.title}
