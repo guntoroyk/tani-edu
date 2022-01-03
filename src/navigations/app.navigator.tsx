@@ -11,6 +11,8 @@ import InfoTaniList from '../screens/InfoTani/InfoTaniList';
 import InfoTaniDetail from '../screens/InfoTani/InfoTaniDetail';
 import TipsBudidayaList from '../screens/TipsBudidaya/TipsBudidayaList';
 import TipsBudidayaDetail from '../screens/TipsBudidaya/TipsBudidayaDetail';
+import CommodityPrice from '../screens/CommodityPrice';
+import CommodityPriceDetail from '../screens/CommodityPrice/CommodityPriceDetail';
 
 function SettingsScreen() {
   return (
@@ -135,6 +137,20 @@ const HomeStackScreen = () => {
         component={TipsBudidayaDetail}
         options={{
           headerTitle: '',
+        }}
+      />
+      <HomeStack.Screen
+        name="CommodityPrice"
+        component={CommodityPrice}
+        options={{
+          headerTitle: 'Harga Komoditas',
+        }}
+      />
+      <HomeStack.Screen
+        name="CommodityPriceDetail"
+        component={CommodityPriceDetail}
+        options={{
+          headerTitle: 'Harga Komoditas Detail',
         }}
       />
     </HomeStack.Navigator>

@@ -8,7 +8,7 @@ export default function Menus() {
   const icons = [
     { name: 'newspaper', title: 'Info Tani', to: 'InfoTani' },
     { name: 'lightbulb-on-outline', title: 'Budidaya', to: 'TipsBudidaya' },
-    { name: 'currency-usd', title: 'Cek Harga', to: 'CekHarga' },
+    { name: 'currency-usd', title: 'Cek Harga', to: 'CommodityPrice' },
     {
       name: 'calculator-variant',
       title: 'Kalkulator Pupuk',
