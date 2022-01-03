@@ -1,6 +1,6 @@
 import React from 'react';
-import { FlatList } from 'native-base';
-import Card from '../../../components/Card';
+import { Button, FlatList, VStack } from 'native-base';
+import Card from '../../components/Card';
 import { useNavigation } from '@react-navigation/native';
 
 const fakeList = [
@@ -29,22 +29,46 @@ const fakeList = [
   },
 ];
 
-export default function TipsBudidaya() {
+export default function TipsBudidayaList() {
   const navigation = useNavigation();
+  const categories = ['Sayuran', 'Hidroponik', 'Tanaman'];
+  const [selectedCategory, setSelectedCategory] = React.useState(categories[0]);
 
   return (
-    <FlatList
-      data={fakeList}
-      renderItem={({ item }) => (
-        <Card
-          item={item}
-          horizontal
-          onPress={() => navigation.navigate('TipsBudidayaDetail', { item })}
-        />
-      )}
-      keyExtractor={item => item.id.toString()}
-      horizontal={true}
-      showsHorizontalScrollIndicator={false}
-    />
+    <VStack
+      flex={1}
+      p={3}
+      px={4}
+      _light={{ backgroundColor: 'white' }}
+      safeAreaTop
+      space={2}>
+      <FlatList
+        data={categories}
+        renderItem={({ item }) => (
+          <Button
+            variant={item === selectedCategory ? 'solid' : 'outline'}
+            m={1}
+            colorScheme="green"
+            onPress={() => setSelectedCategory(item)}>
+            {item}
+          </Button>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      />
+
+      <FlatList
+        data={fakeList}
+        renderItem={({ item }) => (
+          <Card
+            item={item}
+            onPress={() => navigation.navigate('TipsBudidayaDetail', { item })}
+          />
+        )}
+        keyExtractor={item => item.id.toString()}
+        showsVerticalScrollIndicator={false}
+      />
+    </VStack>
   );
 }

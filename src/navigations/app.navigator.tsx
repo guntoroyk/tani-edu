@@ -9,6 +9,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Home from '../screens/Home';
 import InfoTaniList from '../screens/InfoTani/InfoTaniList';
 import InfoTaniDetail from '../screens/InfoTani/InfoTaniDetail';
+import TipsBudidayaList from '../screens/TipsBudidaya/TipsBudidayaList';
+import TipsBudidayaDetail from '../screens/TipsBudidaya/TipsBudidayaDetail';
 
 function SettingsScreen() {
   return (
@@ -117,6 +119,20 @@ const HomeStackScreen = () => {
       <HomeStack.Screen
         name="InfoTaniDetail"
         component={InfoTaniDetail}
+        options={{
+          headerTitle: '',
+        }}
+      />
+      <HomeStack.Screen
+        name="TipsBudidaya"
+        component={TipsBudidayaList}
+        options={{
+          headerTitle: 'Budidaya',
+        }}
+      />
+      <HomeStack.Screen
+        name="TipsBudidayaDetail"
+        component={TipsBudidayaDetail}
         options={{
           headerTitle: '',
         }}

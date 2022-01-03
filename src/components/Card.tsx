@@ -26,7 +26,8 @@ const Card = ({ item, horizontal = false, onPress = () => {} }) => {
   return (
     <Pressable
       onPress={onPress}
-      m={2}
+      my={2}
+      mx={1}
       maxW={horizontal ? '80' : '100%'}
       rounded="lg"
       overflow="hidden"

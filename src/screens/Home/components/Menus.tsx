@@ -7,7 +7,7 @@ import { Dimensions } from 'react-native';
 export default function Menus() {
   const icons = [
     { name: 'newspaper', title: 'Info Tani', to: 'InfoTani' },
-    { name: 'lightbulb-on-outline', title: 'Budidaya', to: 'Budidaya' },
+    { name: 'lightbulb-on-outline', title: 'Budidaya', to: 'TipsBudidaya' },
     { name: 'currency-usd', title: 'Cek Harga', to: 'CekHarga' },
     {
       name: 'calculator-variant',

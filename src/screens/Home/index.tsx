@@ -30,7 +30,11 @@ export default function Home({ navigation }: any) {
 
         <HStack mt={2} alignItems="center" justifyContent="space-between">
           <Heading size="md">Tips Budidaya</Heading>
-          <Button variant="link" colorScheme="success" mr={-3}>
+          <Button
+            variant="link"
+            colorScheme="success"
+            mr={-3}
+            onPress={() => navigation.navigate('TipsBudidaya')}>
             Lihat semua
           </Button>
         </HStack>
