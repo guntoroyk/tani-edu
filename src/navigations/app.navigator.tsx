@@ -13,6 +13,8 @@ import TipsBudidayaList from '../screens/TipsBudidaya/TipsBudidayaList';
 import TipsBudidayaDetail from '../screens/TipsBudidaya/TipsBudidayaDetail';
 import CommodityPrice from '../screens/CommodityPrice';
 import CommodityPriceDetail from '../screens/CommodityPrice/CommodityPriceDetail';
+import FertilizerCalc from '../screens/FertilizerCalc';
+import SeedCalc from '../screens/SeedCalc';
 
 function SettingsScreen() {
   return (
@@ -151,6 +153,20 @@ const HomeStackScreen = () => {
         component={CommodityPriceDetail}
         options={{
           headerTitle: 'Harga Komoditas Detail',
+        }}
+      />
+      <HomeStack.Screen
+        name="FertilizerCalc"
+        component={FertilizerCalc}
+        options={{
+          headerTitle: 'Kalkulator Pupuk',
+        }}
+      />
+      <HomeStack.Screen
+        name="SeedCalc"
+        component={SeedCalc}
+        options={{
+          headerTitle: 'Kalkulator Bibit',
         }}
       />
     </HomeStack.Navigator>

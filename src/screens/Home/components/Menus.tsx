@@ -12,12 +12,12 @@ export default function Menus() {
     {
       name: 'calculator-variant',
       title: 'Kalkulator Pupuk',
-      to: 'KalkulatorPupuk',
+      to: 'FertilizerCalc',
     },
     {
       name: 'calculator',
       title: 'Kalkulator Bibit',
-      to: 'KalkulatorBibit',
+      to: 'SeedCalc',
     },
   ];
 

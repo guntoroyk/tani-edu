@@ -15,14 +15,21 @@ import { Dimensions } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 
 const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
 
-export default function CommodityPriceDetail() {
+export default function CommodityPriceDetail({ navigation, route }) {
   const [province, setProvince] = React.useState('5');
   const [city, setCity] = React.useState('1');
 
   const filters = ['1 Minggu', '1 Bulan', '3 Bulan', '1 Tahun'];
   const [selectedFilter, setSelectedFilter] = React.useState(filters[0]);
+
+  const { item } = route.params;
+
+  React.useEffect(() => {
+    navigation.setOptions({
+      headerTitle: item.name,
+    });
+  }, [item.name, navigation]);
 
   return (
     <VStack
@@ -74,7 +81,7 @@ export default function CommodityPriceDetail() {
 
       <Text color="gray.400">Diperbarui pada tanggal 1 Januari 2022</Text>
 
-      <HStack ml="auto" mt={3}>
+      <HStack ml="auto" mt={4} mb={2}>
         <VStack>
           <Heading textAlign="right">Rp28.600</Heading>
           <Text color="gray.400" textAlign="right">
