@@ -6,18 +6,49 @@ import { Dimensions } from 'react-native';
 
 export default function Menus() {
   const icons = [
-    { name: 'newspaper', title: 'Info Tani', to: 'InfoTani' },
-    { name: 'lightbulb-on-outline', title: 'Budidaya', to: 'TipsBudidaya' },
-    { name: 'currency-usd', title: 'Cek Harga', to: 'CommodityPrice' },
     {
-      name: 'calculator-variant',
-      title: 'Kalkulator Pupuk',
-      to: 'FertilizerCalc',
+      name: 'newspaper',
+      title: 'Info Tani',
+      to: 'WebViewScreen',
+      param: {
+        url: 'https://paktanidigital.com/artikel/category/info/berita-pertanian',
+        title: 'Info Tani',
+      },
     },
     {
-      name: 'calculator',
-      title: 'Kalkulator Bibit',
-      to: 'SeedCalc',
+      name: 'lightbulb-on-outline',
+      title: 'Inspirasi',
+      to: 'WebViewScreen',
+      param: {
+        url: 'https://paktanidigital.com/artikel/category/tips',
+        title: 'Inspirasi & Tips',
+      },
+    },
+    { name: 'currency-usd', title: 'Info Harga', to: 'CommodityPrice' },
+    // {
+    //   name: 'calculator-variant',
+    //   title: 'Kalkulator Pupuk',
+    //   to: 'FertilizerCalc',
+    // },
+    // {
+    //   name: 'calculator',
+    //   title: 'Kalkulator Bibit',
+    //   to: 'SeedCalc',
+    // },
+    // {
+    //   name: 'calculator',
+    //   title: 'Cari Artikel',
+    //   to: 'SearchScreen',
+    // },
+    {
+      name: 'book-open-outline',
+      title: 'Bacaan',
+      to: 'Article',
+    },
+    {
+      name: 'play',
+      title: 'Video Pertanian',
+      to: 'Video',
     },
   ];
 
@@ -33,7 +64,7 @@ export default function Menus() {
         <Center key={i} m={4} width={Dimensions.get('window').width / 2 - 120}>
           <IconButton
             key={i}
-            onPress={() => navigation.navigate(icon.to)}
+            onPress={() => navigation.navigate(icon.to, { item: icon.param })}
             borderRadius="full"
             bg="green.500"
             variant="solid"

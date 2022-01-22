@@ -1,8 +1,18 @@
 import React from 'react';
-import { VStack, Heading, ScrollView, HStack, Button } from 'native-base';
+import {
+  VStack,
+  Heading,
+  ScrollView,
+  HStack,
+  Button,
+  Input,
+  Icon,
+  Text,
+} from 'native-base';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Menus from './components/Menus';
-import InfoTani from './components/InfoTani';
-import TipsBudidaya from './components/TipsBudidaya';
+import Article from './components/Article';
+import Video from './components/Video';
 
 export default function Home({ navigation }: any) {
   return (
@@ -14,31 +24,63 @@ export default function Home({ navigation }: any) {
         _light={{ backgroundColor: 'white' }}
         safeAreaTop
         space={2}>
+        <Input
+          placeholder="Cari pertanian organik, tips budidaya, atau lainnya.."
+          variant="filled"
+          width="100%"
+          bg="gray.100"
+          borderRadius="10"
+          py="1"
+          px="2"
+          placeholderTextColor="gray.500"
+          _focus={{ borderColor: 'green.500', borderWidth: 1 }}
+          borderWidth="1"
+          // borderColor="green.500"
+          onFocus={() => navigation.navigate('Search')}
+          InputLeftElement={
+            <Icon
+              ml="2"
+              size="5"
+              color="green.500"
+              as={<Ionicons name="ios-search" />}
+            />
+          }
+        />
         <Menus />
 
-        <HStack mt={2} alignItems="center" justifyContent="space-between">
-          <Heading size="md">Info Tani</Heading>
-          <Button
-            variant="link"
-            colorScheme="success"
-            mr={-3}
-            onPress={() => navigation.navigate('InfoTani')}>
-            Lihat semua
-          </Button>
-        </HStack>
-        <InfoTani />
+        <VStack mt={2}>
+          <HStack alignItems="center" justifyContent="space-between">
+            <Heading size="md">Kategori Bacaan</Heading>
+            <Button
+              variant="link"
+              colorScheme="success"
+              mr={-3}
+              onPress={() => navigation.navigate('Article')}>
+              Lihat semua
+            </Button>
+          </HStack>
+          <Text>
+            Pilih bacaan menarik tentang berbagai hal di dunia pertanian
+          </Text>
+        </VStack>
+        <Article />
 
-        <HStack mt={2} alignItems="center" justifyContent="space-between">
-          <Heading size="md">Tips Budidaya</Heading>
-          <Button
-            variant="link"
-            colorScheme="success"
-            mr={-3}
-            onPress={() => navigation.navigate('TipsBudidaya')}>
-            Lihat semua
-          </Button>
-        </HStack>
-        <TipsBudidaya />
+        <VStack mt={2}>
+          <HStack alignItems="center" justifyContent="space-between">
+            <Heading size="md">Video Pertanian</Heading>
+            <Button
+              variant="link"
+              colorScheme="success"
+              mr={-3}
+              onPress={() => navigation.navigate('Video')}>
+              Lihat semua
+            </Button>
+          </HStack>
+          <Text>
+            Tonton berbagai video menarik dan insipiratif di dunia pertanian
+          </Text>
+        </VStack>
+        <Video />
       </VStack>
     </ScrollView>
   );

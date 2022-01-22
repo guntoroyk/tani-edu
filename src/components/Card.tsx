@@ -78,7 +78,7 @@ const Card = ({ item, horizontal = false, onPress = () => {} }) => {
           <Heading size="md" ml="-1" isTruncated noOfLines={2}>
             {item.title}
           </Heading>
-          <Text
+          {/* <Text
             fontSize="xs"
             _light={{
               color: 'green.500',
@@ -90,12 +90,12 @@ const Card = ({ item, horizontal = false, onPress = () => {} }) => {
             ml="-0.5"
             mt="-1">
             {item.author}
-          </Text>
+          </Text> */}
         </Stack>
         <Text fontWeight="400" isTruncated noOfLines={3}>
           {item.description}
         </Text>
-        <HStack alignItems="center" space={2} justifyContent="space-between">
+        {/* <HStack alignItems="center" space={2} justifyContent="space-between">
           <HStack alignItems="center">
             <Text
               color="coolGray.600"
@@ -106,7 +106,7 @@ const Card = ({ item, horizontal = false, onPress = () => {} }) => {
               {item.createdAt}
             </Text>
           </HStack>
-        </HStack>
+        </HStack> */}
       </Stack>
     </Pressable>
   );

@@ -1,33 +1,24 @@
-/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
 import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Text, Icon, IconButton, Pressable, View } from 'native-base';
+import { Text, Icon, IconButton, Pressable } from 'native-base';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from '../screens/Home';
-import InfoTaniList from '../screens/InfoTani/InfoTaniList';
-import InfoTaniDetail from '../screens/InfoTani/InfoTaniDetail';
-import TipsBudidayaList from '../screens/TipsBudidaya/TipsBudidayaList';
-import TipsBudidayaDetail from '../screens/TipsBudidaya/TipsBudidayaDetail';
+import Article from '../screens/Article';
+import Video from '../screens/Video';
 import CommodityPrice from '../screens/CommodityPrice';
-import CommodityPriceDetail from '../screens/CommodityPrice/CommodityPriceDetail';
-import FertilizerCalc from '../screens/FertilizerCalc';
-import SeedCalc from '../screens/SeedCalc';
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Akun!</Text>
-    </View>
-  );
-}
+import WebViewScreen from '../screens/WebViewScreen';
+import Search from '../screens/Search';
+import SplashScreen from '../screens/SplashScreen';
+import About from '../screens/About';
+import AboutDetail from '../screens/About/AboutDetail';
 
 const BottomTab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
 
-const BottomTabNavigator = () => {
+const BottomTabNavigator = ({ navigation }) => {
   return (
     <BottomTab.Navigator
       screenOptions={({ route }) => ({
@@ -36,8 +27,8 @@ const BottomTabNavigator = () => {
 
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'Account') {
-            iconName = focused ? 'account' : 'account-outline';
+          } else if (route.name === 'Info') {
+            iconName = focused ? 'information' : 'information-outline';
           }
 
           // You can return any component that you like here!
@@ -73,7 +64,7 @@ const BottomTabNavigator = () => {
         options={{
           headerTitle: () => (
             <Text bold fontSize="2xl">
-              TaniEdu
+              TaniEDU
             </Text>
           ),
           headerRight: () => (
@@ -82,22 +73,19 @@ const BottomTabNavigator = () => {
               p={1}
               rounded="xl"
               _pressed={{ background: 'gray.300' }}
-              // onPress={() => navigation.navigate('Notifications')}
-            >
-              <Icon
-                name="dots-vertical"
-                as={MaterialCommunityIcons}
-                size="sm"
-              />
+              onPress={() => navigation.navigate('Info')}>
+              <Icon name="information" as={MaterialCommunityIcons} size="sm" />
             </Pressable>
           ),
           title: 'Beranda',
         }}
       />
       <BottomTab.Screen
-        name="Account"
-        component={SettingsScreen}
-        options={{ title: 'Akun' }}
+        name="Info"
+        component={About}
+        options={{
+          title: 'Info',
+        }}
       />
     </BottomTab.Navigator>
   );
@@ -114,31 +102,17 @@ const HomeStackScreen = () => {
         }}
       />
       <HomeStack.Screen
-        name="InfoTani"
-        component={InfoTaniList}
+        name="Article"
+        component={Article}
         options={{
-          headerTitle: 'Info Tani',
+          headerTitle: 'Bacaan',
         }}
       />
       <HomeStack.Screen
-        name="InfoTaniDetail"
-        component={InfoTaniDetail}
+        name="Video"
+        component={Video}
         options={{
-          headerTitle: '',
-        }}
-      />
-      <HomeStack.Screen
-        name="TipsBudidaya"
-        component={TipsBudidayaList}
-        options={{
-          headerTitle: 'Budidaya',
-        }}
-      />
-      <HomeStack.Screen
-        name="TipsBudidayaDetail"
-        component={TipsBudidayaDetail}
-        options={{
-          headerTitle: '',
+          headerTitle: 'Video',
         }}
       />
       <HomeStack.Screen
@@ -149,24 +123,24 @@ const HomeStackScreen = () => {
         }}
       />
       <HomeStack.Screen
-        name="CommodityPriceDetail"
-        component={CommodityPriceDetail}
+        name="Search"
+        component={Search}
         options={{
-          headerTitle: 'Harga Komoditas Detail',
+          headerTitle: 'Cari Artikel',
         }}
       />
       <HomeStack.Screen
-        name="FertilizerCalc"
-        component={FertilizerCalc}
+        name="WebViewScreen"
+        component={WebViewScreen}
         options={{
-          headerTitle: 'Kalkulator Pupuk',
+          headerShown: false,
         }}
       />
       <HomeStack.Screen
-        name="SeedCalc"
-        component={SeedCalc}
+        name="AboutDetail"
+        component={AboutDetail}
         options={{
-          headerTitle: 'Kalkulator Bibit',
+          headerTitle: 'Tentang',
         }}
       />
     </HomeStack.Navigator>
@@ -175,7 +149,7 @@ const HomeStackScreen = () => {
 
 export default function AppNavigator() {
   return (
-    <NavigationContainer>
+    <NavigationContainer fallback={<SplashScreen />}>
       <HomeStackScreen />
     </NavigationContainer>
   );
